@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using System;
 
 namespace WallpaperSetter
 {
@@ -14,9 +12,15 @@ namespace WallpaperSetter
 		public static string AppName = "WallpaperSetter.exe";
 
 		public  static void WallpaperControl(){
-			PhotoOfTheDay photo = WallpaperJsonParser.JsonDownload<PhotoOfTheDay>(url);
-			Downloader.DownloadingWallpaper(Bing+photo.images[0].url,PhotoName);
-			WallpaperSetter.SetDesktopWallpaper(DirectoryGetter.GetCurrentDirectory() + @"\" +PhotoName);
-		}
+			try
+			{
+				PhotoOfTheDay photo = WallpaperJsonParser.JsonDownload<PhotoOfTheDay>(url);
+				Downloader.DownloadingWallpaper(Bing + photo.images[0].url, PhotoName);
+				WallpaperSetter.SetDesktopWallpaper(DirectoryGetter.GetCurrentDirectory() + @"\" + PhotoName);
+			}
+			catch(Exception e){
+				Logger.LogCreator(e.Message);
+			}
+			}
 	}
 }

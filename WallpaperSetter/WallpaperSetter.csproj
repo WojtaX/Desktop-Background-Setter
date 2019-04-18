@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logger.cs" />
     <Compile Include="ProgramController.cs" />
     <Compile Include="TasksController\Scheduler.cs" />
     <Compile Include="SupportingFeatures\DirectoryGetter.cs" />

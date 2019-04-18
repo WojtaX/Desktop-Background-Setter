@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32.TaskScheduler;
+﻿using Microsoft.Win32.TaskScheduler;
+using System;
+
 namespace WallpaperSetter
 {
 	class Scheduler
@@ -13,12 +10,18 @@ namespace WallpaperSetter
 		public static string TaskDescription = "ChangingWallpaper";
 		public static void AddingToScheduler()
 		{
-			using (TaskService taskService = new TaskService())
+			try
 			{
-				if (!TaskChecker.CheckTask(TaskName))
+				using (TaskService taskService = new TaskService())
 				{
-					TasksCreator.CreatingTask(taskService);
+					if (!TaskChecker.CheckTask(TaskName))
+					{
+						TasksCreator.CreatingTask(taskService);
+					}
 				}
+			}
+			catch(Exception e){
+				Logger.LogCreator(e.Message);
 			}
 			}
 		}

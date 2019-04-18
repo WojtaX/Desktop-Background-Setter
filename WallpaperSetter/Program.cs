@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+﻿
 
 namespace WallpaperSetter
 {
@@ -9,6 +7,7 @@ namespace WallpaperSetter
 		static void Main(string[] args)
 		{
 			ProgramController.Start();
+
 		}
 	}
 }

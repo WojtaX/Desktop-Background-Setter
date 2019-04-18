@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using System;
 
 namespace WallpaperSetter
 {
@@ -10,9 +8,15 @@ namespace WallpaperSetter
 	{
 		public static void Start()
 		{
-			Scheduler.AddingToScheduler();
-			WallpaperController.WallpaperControl();
-		}
+			try
+			{
+				Scheduler.AddingToScheduler();
+				WallpaperController.WallpaperControl();
+			}
+			catch(Exception e ){
+				Logger.LogCreator(e.Message);
+			}
+			}
 		}
 
 }

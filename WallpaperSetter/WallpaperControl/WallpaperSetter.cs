@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace WallpaperSetter
 {
@@ -13,8 +14,14 @@ public 	class WallpaperSetter
 
 	public	static void SetDesktopWallpaper(string filename)
 		{
-			SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, filename,
-				SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
-		}
+			try
+			{
+				SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, filename,
+					SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+			}
+			catch(Exception e){
+				Logger.LogCreator(e.Message);
+			}
+				}
 	}
 }

@@ -14,6 +14,7 @@ namespace WallpaperSetter
 			string Month = DateTime.Today.Month.ToString();
 			string Day = DateTime.Today.Day.ToString();
 			string date = Year + Month + Day;
+			System.IO.Directory.CreateDirectory("LOG");
 			using (StreamWriter outputFile = new StreamWriter(Path.Combine(DirectoryGetter.GetCurrentDirectory()+@"\LOG", date+"LOG.txt")))
 			{
 					outputFile.WriteLine(message);

@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 
 namespace WallpaperSetter
 {
@@ -18,5 +16,4 @@ namespace WallpaperSetter
 			}
 			}
 		}
-
 }
